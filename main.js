@@ -48,6 +48,11 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
+//add icon for mac
+app.dock.setIcon(
+  path.join(__dirname, 'assets/TuneIn250x250.png')
+  );
+
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
   // On OS X it is common for applications and their menu bar
