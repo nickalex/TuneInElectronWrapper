@@ -2,6 +2,8 @@
 
 window.onresize = doLayout;
 var isLoading = false;
+var firstLaunch = true;
+var splashShown = false;
 
 onload = function() {
   var webview = document.querySelector('webview');
@@ -28,14 +30,36 @@ function doLayout() {
   webview.style.height = webviewHeight + 'px';
 }
 
+function showSplash(){
+  var splash = document.querySelector("#splash");
+  splash.style.display = "block";
+}
+    
+function hideSplash() {
+  var splash = document.querySelector("#splash");
+  splash.style.display = "none";
+}
+
 function handleLoadStart(){
     //put spinner 
     console.log("Load Start");
+
+    if(firstLaunch === true){
+      showSplash();
+      console.log("Splash Shown");
+      firstLaunch = false;
+      splashShown = true;
+    }
 }
 
 function handleLoadStop(){
     //end spinner
     console.log("Load Stopped");
+
+    if(!firstLaunch && splashShown){
+      hideSplash();
+      splashShown = false;
+    }
 }
 
 function handleLoadCommit(){
