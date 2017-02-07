@@ -12,18 +12,21 @@ const url = require('url')
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow
 
-function createWindow () {
+function createWindow() {
   // Create the browser window.
   mainWindow = new BrowserWindow({
     width: 1280,
     height: 720,
     'webPreferences': {
       'web-security': false,
-      'allow_displaying_insecure_content':true,
+      'allow_displaying_insecure_content': true,
       'allow_running_insecure_content': true,
       'plugins': true
     }
   });
+
+  // disable resizeable
+  // mainWindow.isResizable(false);
 
   // and load the index.html of the app.
   mainWindow.loadURL(url.format({
@@ -31,8 +34,9 @@ function createWindow () {
     protocol: 'file:',
     slashes: true
   }));
+
   // Open the DevTools.
-  mainWindow.webContents.openDevTools()
+  // mainWindow.webContents.openDevTools()
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
@@ -50,8 +54,8 @@ app.on('ready', createWindow)
 
 //add icon for mac
 app.dock.setIcon(
-  path.join(__dirname, 'assets/TuneIn250x250.png')
-  );
+  path.join(__dirname, 'assets/icon.png')
+);
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {
