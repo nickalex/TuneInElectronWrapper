@@ -5,10 +5,9 @@ var isLoading = false;
 var firstLaunch = true;
 var splashShown = false;
 
-onload = function() {
+function onload() {
   var webview = document.querySelector('webview');
   doLayout();
-
 
   webview.addEventListener('close', handleExit);
   webview.addEventListener('did-start-loading', handleLoadStart);
@@ -30,48 +29,48 @@ function doLayout() {
   webview.style.height = webviewHeight + 'px';
 }
 
-function showSplash(){
+function showSplash() {
   var splash = document.querySelector("#splash");
   splash.style.display = "block";
 }
-    
+
 function hideSplash() {
   var splash = document.querySelector("#splash");
   splash.style.display = "none";
 }
 
-function handleLoadStart(){
-    //put spinner 
-    console.log("Load Start");
+function handleLoadStart() {
+  //put spinner
+  console.log("Load Start");
 
-    if(firstLaunch === true){
-      showSplash();
-      console.log("Splash Shown");
-      firstLaunch = false;
-      splashShown = true;
-    }
+  if (firstLaunch === true) {
+    showSplash();
+    console.log("Splash Shown");
+    firstLaunch = false;
+    splashShown = true;
+  }
 }
 
-function handleLoadStop(){
-    //end spinner
-    console.log("Load Stopped");
+function handleLoadStop() {
+  //end spinner
+  console.log("Load Stopped");
 
-    if(!firstLaunch && splashShown){
-      hideSplash();
-      splashShown = false;
-    }
+  if (!firstLaunch && splashShown) {
+    hideSplash();
+    splashShown = false;
+  }
 }
 
-function handleLoadCommit(){
-    console.log("Load Finish");
+function handleLoadCommit() {
+  console.log("Load Finish");
 }
 
-function handleLoadAbort(){
-    //pass
+function handleLoadAbort() {
+  //pass
 }
 
-function handleLoadRedirect(){
-    //pass
+function handleLoadRedirect() {
+  //pass
 }
 
 function handleExit(event) {

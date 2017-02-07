@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>TuneIn</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Lucida Grande, Arial, sans-serif;
+    }
+  </style>
+  <link rel="stylesheet" href="./index.css">
+</head>
+
+<body>
+  <webview src="https://beta.tunein.com" style="width:1280px; height:720px" disablewebsecurity></webview>
+  <div id="splash">
+    <div id="splashlogo">
+      <image class="tuneinmark" src="./assets/background.png">
+    </div>
+  </div>
+
+  <script>
+    // You can also require other files to run in this process
+    require('./renderer.js');
+    require('./browser.js')
+  </script>
+</body>
+
+</html>

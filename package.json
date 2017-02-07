@@ -1,22 +1,35 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
-  "main": "main.js",
+  "name": "TuneIn",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "TuneIn desktop wrapper",
+  "main": "./app/index.js",
+  "repository": "https://github.com/nickalex/TuneInElectronWrapper",
+  "author": "Nicholas Alexandres",
   "scripts": {
-    "start": "electron ."
+    "postinstall": "install-app-deps",
+    "start": "yarn install && electron ./app",
+    "pack": "yarn install && build --dir",
+    "dist": "yarn install && build",
+    "release": "yarn install &&  build"
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "build": {
+    "appId": "com.nickalex.tunein",
+    "mac": {
+      "category": "public.app-category.music"
+    },
+    "win": {
+      "iconUrl": "https://github.com/${u}/${p}/blob/master/build/icon.ico?raw=true"
+    }
+  },
   "keywords": [
     "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "tune",
+    "tunein",
+    "radio"
   ],
-  "author": "GitHub",
-  "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^1.4.1"
+    "electron": "^1.4.15",
+    "electron-builder": "^13.0.0"
   }
 }

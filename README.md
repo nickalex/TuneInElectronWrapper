@@ -1,9 +1,8 @@
 # TuneInElectronWrapper
-Playing around with Electron
+TuneIn desktop wrapper
 
-
-To set up (requires git, node and npm):
-1.) git clone this repo
-2.) cd to TuneInElectronWrapper
-3.) npm install 
-4.) npm start
+## To set up
+1. install `node` and `yarn`
+1. `cd` into project directory
+1. `yarn install`
+1. `yarn start`
